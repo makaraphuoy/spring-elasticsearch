@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: elk-tsc
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db_name
+    username: 
+    password: 
+    driver-class-name: org.postgresql.Driver
+
+  elasticsearch:
+    uris: http://localhost:9200
+    # If you're using Spring Data Elasticsearch reactive client
+    # Comment or remove if you use RestHighLevelClient or other
+    repositories:
+      enabled: true
+    client:
+      reactive:
+        ssl:
+          enabled: false
+
+register:
+  elasticsearch:
+    user: 
+    password: 
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          elasticsearch: DEBUG
+        boot:
+          autoconfigure: DEBUG
+    org:
+      elasticsearch:
+        client: DEBUG
